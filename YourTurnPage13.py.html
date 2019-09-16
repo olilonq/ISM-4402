@@ -1,0 +1,26 @@
+#!/usr/bin/env python
+# coding: utf-8
+
+# In[4]:
+
+
+#In the datasets/weekly_call_data folder, there are 104 files of weekly call
+#data for two years. Your task is to try to load all of that data into one dataframe.
+
+import pandas as pd
+import numpy as np
+import glob
+
+all_data = pd.DataFrame()
+for file in glob.glob("datasets/weekly_call_data/weekdata*"):
+    df = pd.read_excel(file)
+    all_data = all_data.append(df,ignore_index=True)
+    
+all_data.describe()
+
+
+# In[ ]:
+
+
+
+
