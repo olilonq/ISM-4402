@@ -1,0 +1,33 @@
+#!/usr/bin/env python
+# coding: utf-8
+
+# In[17]:
+
+
+#Recreate the dataframe from this section and create a column classifying
+#the row as pass or fail. This is for a master's program that requires a grade
+#of 80 or above for a student to pass.
+
+import pandas as pd
+import numpy as np
+Location ="datasets/gradedata.csv"
+df = pd.read_csv(Location)
+bins = [0,60,70,80,90,100]
+group_names = ['F','D','C','B','A']
+df['lettergrade'] = pd.cut(df['grade'], bins, 
+                           labels=group_names)
+
+pd.value_counts(df['lettergrade'])
+
+#df.loc[df['grade'] >=80, 'status'] = 'Pass'
+#df.loc[df['grade'] <80, 'status'] = 'Fail'
+df['status'] = np.where(df['grade']<80, 'Fail', 'Pass')
+
+df
+
+
+# In[ ]:
+
+
+
+
