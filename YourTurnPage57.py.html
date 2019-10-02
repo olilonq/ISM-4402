@@ -1,0 +1,40 @@
+#!/usr/bin/env python
+# coding: utf-8
+
+# In[24]:
+
+
+#Of course, in our dataset we only have one column. Try creating a
+#dataframe and computing summary statistics using the dataset in
+#Listing 4-6.
+
+import pandas as pd
+names = ['Bob','Jessica','Mary','John','Mel']
+grades = [76,95,77,78,99]
+bsdegrees = [1,1,0,0,1]
+msdegrees = [2,1,0,0,0]
+phddegrees = [0,1,0,0,0]
+GradeList = zip(names,grades,bsdegrees,msdegrees,phddegrees)
+df = pd.DataFrame(data=GradeList,
+columns=['Names','Grades','bsdegrees','msdegrees','phddegrees'])
+
+#Just uncomment whichever statistics we're interested in. 
+# I'm interested in the sum
+#df.count()
+df.sum()
+#df.quantile(.25)
+#df.quantile(.5)
+#df.quantile(.75)
+#df.mean()
+#df.median()
+#df.mode()
+#df.var()
+#df.min()
+#df.max()
+
+
+# In[ ]:
+
+
+
+
