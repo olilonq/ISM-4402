@@ -1,0 +1,25 @@
+#!/usr/bin/env python
+# coding: utf-8
+
+# In[8]:
+
+
+#Can you sort the dataframe to order it by name, age, and then grade?
+
+import pandas as pd
+Location ="datasets/gradedata.csv"
+df = pd.read_csv(Location)
+df = df.sort_values(by=['fname','age','grade'],ascending=[ True, True, True])
+df.head()
+
+#Chose to sort by only first name because it was not specified to use both,
+#If i should sort by both fname and lname i'd just add 'lname' to the array 
+#between 'fname' and 'age' and add another True value in ascending.
+#I can add False values if I want that to be descending 
+
+
+# In[ ]:
+
+
+
+

@@ -1,0 +1,28 @@
+#!/usr/bin/env python
+# coding: utf-8
+
+# In[21]:
+
+
+#Load the data from the code in Listing 4-15 and find the correlations.
+
+import pandas as pd
+import numpy as np
+import statsmodels.formula.api as sm
+
+Location = "datasets/gradedata.csv"
+df = pd.read_csv(Location)
+
+df['gender'] = np.where(df['gender']=='male', 0, 1)
+
+result = sm.ols(formula ='grade ~  gender + exercise + hours', data=df).fit()
+result.summary()
+
+#R-squared is improved from 0.664 to 0.665 so not much
+
+
+# In[ ]:
+
+
+
+
